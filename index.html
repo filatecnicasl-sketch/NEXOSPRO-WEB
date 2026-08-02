@@ -1436,9 +1436,9 @@
             <div class="footer-links">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="#">Aviso legal</a></li>
-                    <li><a href="#">Privacidad</a></li>
-                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#" onclick="openLegal('legal-aviso');return false;">Aviso legal</a></li>
+                    <li><a href="#" onclick="openLegal('legal-privacidad');return false;">Privacidad</a></li>
+                    <li><a href="#" onclick="openLegal('legal-cookies');return false;">Cookies</a></li>
                 </ul>
             </div>
         </div>
@@ -1787,6 +1787,186 @@
             </button>
         </div>
     </div>
+
+    <!-- ===== COOKIES + LEGAL ===== -->
+    <style>
+        .cookie-banner {
+            position: fixed; left: 1rem; right: 1rem; bottom: 1rem; z-index: 3000;
+            max-width: 720px; margin: 0 auto;
+            background: rgba(15, 20, 32, 0.97); backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 192, 240, 0.2); border-radius: var(--radius-lg);
+            padding: 1.5rem; box-shadow: var(--shadow-lg);
+            display: none;
+        }
+        .cookie-banner.show { display: block; }
+        .cookie-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; }
+        .cookie-text { flex: 1; min-width: 260px; }
+        .cookie-text strong { color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.95rem; display: block; margin-bottom: 0.25rem; }
+        .cookie-text p { color: var(--gray-400); font-size: 0.85rem; line-height: 1.6; margin: 0; }
+        .cookie-text a { color: var(--cyan); font-weight: 600; }
+        .cookie-actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+        .cookie-btn {
+            padding: 0.65rem 1.4rem; font-family: 'Montserrat', sans-serif; font-weight: 600;
+            font-size: 0.85rem; border-radius: var(--radius-md); cursor: pointer; border: none;
+            transition: var(--transition);
+        }
+        .cookie-btn.reject { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+        .cookie-btn.reject:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.4); }
+        .cookie-btn.accept { background: var(--cyan); color: var(--navy-dark); }
+        .cookie-btn.accept:hover { background: var(--cyan-light); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0, 192, 240, 0.3); }
+
+        .legal-overlay {
+            position: fixed; inset: 0; z-index: 4000;
+            background: rgba(5, 8, 16, 0.8); backdrop-filter: blur(6px);
+            display: none; align-items: center; justify-content: center; padding: 1.5rem;
+        }
+        .legal-overlay.show { display: flex; }
+        .legal-modal {
+            background: var(--dark-card); border: 1px solid rgba(0, 192, 240, 0.15);
+            border-radius: var(--radius-xl); max-width: 720px; width: 100%;
+            max-height: 85vh; overflow-y: auto; padding: 2.5rem; position: relative;
+        }
+        .legal-close {
+            position: absolute; top: 1.25rem; right: 1.25rem;
+            width: 38px; height: 38px; border-radius: 50%;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+            color: var(--white); font-size: 1.1rem; cursor: pointer; transition: var(--transition);
+        }
+        .legal-close:hover { background: rgba(0,192,240,0.15); border-color: var(--cyan); }
+        .legal-modal h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+        .legal-eyebrow {
+            display: inline-block; color: var(--cyan); font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem;
+        }
+        .legal-modal h3 { font-size: 1.05rem; margin: 1.5rem 0 0.5rem; color: var(--white); }
+        .legal-modal p, .legal-modal li { color: var(--gray-300); font-size: 0.92rem; line-height: 1.7; }
+        .legal-modal ul { margin: 0.5rem 0 0 1.25rem; }
+        .legal-modal li { margin-bottom: 0.35rem; }
+        .legal-modal a { color: var(--cyan); font-weight: 600; }
+        @media (max-width: 600px) {
+            .legal-modal { padding: 2rem 1.5rem; }
+            .cookie-actions { width: 100%; }
+            .cookie-btn { flex: 1; }
+        }
+    </style>
+
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Aviso de cookies">
+        <div class="cookie-inner">
+            <div class="cookie-text">
+                <strong>Usamos cookies</strong>
+                <p>Utilizamos cookies propias y de terceros para el funcionamiento del sitio y para analizar el uso de la web. Puedes aceptarlas o rechazarlas. Más información en nuestra <a href="#" onclick="openLegal('legal-cookies');return false;">Política de cookies</a>.</p>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn reject" onclick="setCookieConsent('rejected')">Rechazar</button>
+                <button class="cookie-btn accept" onclick="setCookieConsent('accepted')">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="legal-overlay" id="legal-aviso" onclick="if(event.target===this)closeLegal('legal-aviso')">
+        <div class="legal-modal">
+            <button class="legal-close" onclick="closeLegal('legal-aviso')" aria-label="Cerrar">✕</button>
+            <span class="legal-eyebrow">Información legal</span>
+            <h2>Aviso legal</h2>
+            <h3>1. Datos identificativos</h3>
+            <p>En cumplimiento de la Ley 34/2002 (LSSI-CE), se facilitan los datos del titular de este sitio web:</p>
+            <ul>
+                <li><strong>Titular:</strong> FILA TÉCNICA S.L.</li>
+                <li><strong>CIF:</strong> B75418350</li>
+                <li><strong>Domicilio:</strong> Calle Escritor Luis Berenguer 4, local 5, 11100 San Fernando (Cádiz)</li>
+                <li><strong>Email:</strong> info@nexospro.es</li>
+                <li><strong>Sitio web:</strong> www.nexospro.es</li>
+            </ul>
+            <h3>2. Objeto</h3>
+            <p>El presente aviso legal regula el uso del sitio web www.nexospro.es. La navegación atribuye la condición de usuario e implica la aceptación de todas las cláusulas aquí incluidas.</p>
+            <h3>3. Propiedad intelectual e industrial</h3>
+            <p>Todos los contenidos del sitio (textos, gráficos, logotipos, marcas, diseño y código) son propiedad de FILA TÉCNICA S.L. o de terceros que han autorizado su uso, y están protegidos por los derechos de propiedad intelectual e industrial. Queda prohibida su reproducción sin autorización expresa.</p>
+            <h3>4. Exclusión de responsabilidad</h3>
+            <p>FILA TÉCNICA S.L. no se responsabiliza de los daños derivados de interrupciones, virus o desconexiones del sistema por causas ajenas a su control.</p>
+            <h3>5. Legislación aplicable</h3>
+            <p>Estas condiciones se rigen por la legislación española, sometiéndose las partes a los juzgados y tribunales del domicilio del titular.</p>
+        </div>
+    </div>
+
+    <div class="legal-overlay" id="legal-privacidad" onclick="if(event.target===this)closeLegal('legal-privacidad')">
+        <div class="legal-modal">
+            <button class="legal-close" onclick="closeLegal('legal-privacidad')" aria-label="Cerrar">✕</button>
+            <span class="legal-eyebrow">Protección de datos</span>
+            <h2>Política de privacidad</h2>
+            <h3>1. Responsable del tratamiento</h3>
+            <ul>
+                <li><strong>Titular:</strong> FILA TÉCNICA S.L.</li>
+                <li><strong>CIF:</strong> B75418350</li>
+                <li><strong>Domicilio:</strong> Calle Escritor Luis Berenguer 4, local 5, 11100 San Fernando (Cádiz)</li>
+                <li><strong>Email:</strong> info@nexospro.es</li>
+            </ul>
+            <h3>2. Finalidad</h3>
+            <p>Tratamos los datos que nos facilitas para atender solicitudes de información o presupuesto, gestionar la relación comercial y prestar nuestros servicios.</p>
+            <h3>3. Base legal</h3>
+            <p>El consentimiento del interesado al enviar sus datos, la ejecución de una relación contractual o precontractual y el interés legítimo en atender las consultas recibidas.</p>
+            <h3>4. Conservación</h3>
+            <p>Los datos se conservarán mientras sean necesarios para la finalidad para la que se recabaron y para determinar posibles responsabilidades legales.</p>
+            <h3>5. Derechos</h3>
+            <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:info@nexospro.es">info@nexospro.es</a>. También puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+        </div>
+    </div>
+
+    <div class="legal-overlay" id="legal-cookies" onclick="if(event.target===this)closeLegal('legal-cookies')">
+        <div class="legal-modal">
+            <button class="legal-close" onclick="closeLegal('legal-cookies')" aria-label="Cerrar">✕</button>
+            <span class="legal-eyebrow">Cookies</span>
+            <h2>Política de cookies</h2>
+            <h3>1. ¿Qué son las cookies?</h3>
+            <p>Una cookie es un pequeño fichero de texto que un sitio web almacena en el navegador del usuario cuando lo visita, permitiendo su funcionamiento, recordar preferencias y, en algunos casos, analizar el uso de la web.</p>
+            <h3>2. Cookies que utilizamos</h3>
+            <ul>
+                <li><strong>Técnicas o necesarias:</strong> imprescindibles para el funcionamiento del sitio y para recordar tu preferencia de consentimiento. No requieren autorización.</li>
+                <li><strong>De análisis:</strong> nos ayudan a entender cómo se usa la web para mejorarla. Solo se activan si las aceptas.</li>
+            </ul>
+            <h3>3. Gestión de cookies</h3>
+            <p>Al acceder por primera vez se muestra un aviso que permite aceptar o rechazar las cookies no necesarias. Puedes cambiar tu decisión borrando las cookies desde la configuración de tu navegador (Chrome, Firefox, Edge o Safari).</p>
+            <h3>4. Actualización</h3>
+            <p>FILA TÉCNICA S.L. puede modificar esta política según nuevos requisitos legales o técnicos. Para cualquier duda escríbenos a <a href="mailto:info@nexospro.es">info@nexospro.es</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        // ===== COOKIES CONSENT =====
+        (function () {
+            var KEY = 'nexospro-cookie-consent';
+            var banner = document.getElementById('cookieBanner');
+            try {
+                var v = localStorage.getItem(KEY);
+                if (v !== 'accepted' && v !== 'rejected') {
+                    setTimeout(function () { banner.classList.add('show'); }, 400);
+                }
+            } catch (e) {
+                setTimeout(function () { banner.classList.add('show'); }, 400);
+            }
+            window.setCookieConsent = function (value) {
+                try { localStorage.setItem(KEY, value); } catch (e) {}
+                banner.classList.remove('show');
+            };
+        })();
+
+        // ===== LEGAL MODALS =====
+        window.openLegal = function (id) {
+            var el = document.getElementById(id);
+            if (el) { el.classList.add('show'); document.body.style.overflow = 'hidden'; }
+        };
+        window.closeLegal = function (id) {
+            var el = document.getElementById(id);
+            if (el) { el.classList.remove('show'); document.body.style.overflow = ''; }
+        };
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.legal-overlay.show').forEach(function (el) {
+                    el.classList.remove('show');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
 
 </body>
 </html>
