@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXOSPRO — Software a medida con IA | FILA TÉCNICA S.L.</title>
+    <meta name="description" content="NEXOSPRO: software de facturación VeriFactu y soluciones a medida con IA. NEXOS: sistemas de gestión sectoriales. Desde 2.500€. Presupuesto cerrado.">
+    <meta name="keywords" content="software a medida, VeriFactu, facturación electrónica, IA, gestión empresarial, NEXOSPRO, FILA TÉCNICA">
+    <meta name="author" content="FILA TÉCNICA S.L.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="NEXOSPRO — Software a medida con IA">
+    <meta property="og:description" content="Transformamos tu empresa con software inteligente. VeriFactu 2027, gestión sectorial e IA integrada.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nexospro.es">
+    <meta property="og:site_name" content="NEXOSPRO">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NEXOSPRO — Software a medida con IA">
+    <meta name="twitter:description" content="Transformamos tu empresa con software inteligente. VeriFactu 2027, gestión sectorial e IA integrada.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 8L32 32' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M32 8L8 32' stroke='%2300C0F0' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #003080;
+            --cyan: #00C0F0;
+            --navy-dark: #001a4d;
+            --navy-light: #004db8;
+            --cyan-dark: #0099c0;
+            --cyan-light: #33d0ff;
+            --accent: #00C0F0;
+            --dark: #0a0e1a;
+            --dark-card: #0f1420;
+            --dark-surface: #141b2d;
+            --gray-100: #f0f4f8;
+            --gray-200: #d9e2ec;
+            --gray-300: #bcccdc;
+            --gray-400: #829ab1;
+            --gray-500: #627d98;
+            --gray-600: #486581;
+            --gray-700: #334e68;
+            --gray-800: #243b53;
+            --gray-900: #102a43;
+            --white: #ffffff;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.2);
+            --shadow-glow: 0 0 40px rgba(0,192,240,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--gray-200);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 192, 240, 0.1);
+            transition: var(--transition);
+        }
+        .navbar.scrolled { padding: 0.75rem 2rem; background: rgba(10, 14, 26, 0.95); }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
+        }
+        .nav-logo-icon { width: 44px; height: 44px; position: relative; }
+        .nav-logo-icon svg { width: 100%; height: 100%; }
+        .logo-text { white-space: nowrap; display: inline-block; }
+        .logo-x { color: var(--cyan); }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a {
+            font-size: 0.9rem; font-weight: 500; color: var(--gray-300);
+            transition: var(--transition); position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--cyan); transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            padding: 0.6rem 1.5rem; background: var(--cyan); color: var(--navy-dark);
+            font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 0.85rem;
+            border-radius: var(--radius-md); transition: var(--transition); border: none; cursor: pointer;
+        }
+        .nav-cta:hover {
+            background: var(--cyan-light); transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 192, 240, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none;
+            color: var(--white); font-size: 1.5rem; cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            position: relative; padding: 8rem 2rem 4rem; overflow: hidden;
+        }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg-grid {
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 192, 240, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 192, 240, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        #nexos-canvas {
+            position: absolute; inset: 0; z-index: 0; opacity: 0.6;
+        }
+        .hero-bg-glow {
+            position: absolute; width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 192, 240, 0.08) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+
+        .hero-content { position: relative; z-index: 1; text-align: center; max-width: 900px; }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 1.25rem; background: rgba(0, 192, 240, 0.1);
+            border: 1px solid rgba(0, 192, 240, 0.2); border-radius: 100px;
+            font-size: 0.85rem; font-weight: 500; color: var(--cyan);
+            margin-bottom: 2rem; animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-badge-dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 800;
+            margin-bottom: 1rem; letter-spacing: -0.03em;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        .hero-title .accent {
+            background: linear-gradient(135deg, var(--cyan) 0%, var(--navy-light) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero-typing {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1rem, 2vw, 1.25rem); color: var(--cyan);
+            min-height: 2rem; margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        .hero-typing::after {
+            content: '|'; animation: cursor 1s infinite;
+        }
+        @keyframes cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.15rem); color: var(--gray-400);
+            max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        .hero-cta-group {
+            display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem; font-family: 'Montserrat', sans-serif; font-weight: 600;
+            font-size: 0.95rem; border-radius: var(--radius-md); transition: var(--transition);
+            cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 0.5rem;
+        }
+        .btn-primary { background: var(--cyan); color: var(--navy-dark); }
+        .btn-primary:hover { background: var(--cyan-light); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 192, 240, 0.3); }
+        .btn-secondary { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+        .btn-secondary:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.4); transform: translateY(-3px); }
+
+        .hero-stats {
+            display: flex; justify-content: center; gap: 3rem; margin-top: 4rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        .stat-item { text-align: center; }
+        .stat-value { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 700; color: var(--white); }
+        .stat-label { font-size: 0.8rem; color: var(--gray-500); margin-top: 0.25rem; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SECTIONS COMMON ===== */
+        .section { padding: 6rem 2rem; position: relative; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+        .section-label {
+            display: inline-block; padding: 0.35rem 1rem;
+            background: rgba(0, 192, 240, 0.1); border: 1px solid rgba(0, 192, 240, 0.15);
+            border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--cyan);
+            text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;
+        }
+        .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+        .section-desc { color: var(--gray-400); font-size: 1.05rem; line-height: 1.7; }
+
+        /* ===== COUNTDOWN ===== */
+        .countdown-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            padding: 3rem 2rem; position: relative; overflow: hidden;
+        }
+        .countdown-section::before {
+            content: ''; position: absolute; top: -50px; right: -50px;
+            width: 300px; height: 300px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 192, 240, 0.1) 0%, transparent 70%);
+        }
+        .countdown-content {
+            max-width: 800px; margin: 0 auto; text-align: center; position: relative; z-index: 1;
+        }
+        .countdown-label {
+            display: inline-block; padding: 0.3rem 0.9rem;
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 100px; font-size: 0.7rem; font-weight: 700; color: var(--cyan);
+            text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem;
+        }
+        .countdown-title { font-size: 1.5rem; color: #fff; margin-bottom: 0.5rem; }
+        .countdown-sub { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .countdown-boxes {
+            display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+        }
+        .count-box {
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: var(--radius-md); padding: 1rem 1.5rem; min-width: 80px;
+        }
+        .count-box .num {
+            font-family: 'JetBrains Mono', monospace; font-size: 2rem; font-weight: 700; color: var(--cyan); line-height: 1;
+        }
+        .count-box .lab { font-size: 0.7rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; text-transform: uppercase; }
+
+        /* ===== PRODUCT LINES ===== */
+        .product-lines { background: var(--dark-card); }
+        .lines-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+        }
+        .line-card {
+            background: var(--dark-surface); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius-lg); padding: 2.5rem; transition: var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .line-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            transform: scaleX(0); transition: var(--transition);
+        }
+        .line-card:hover::before { transform: scaleX(1); }
+        .line-card:hover {
+            transform: translateY(-5px); border-color: rgba(0, 192, 240, 0.15);
+            box-shadow: var(--shadow-glow);
+        }
+        .line-badge {
+            display: inline-block; padding: 0.3rem 0.9rem;
+            border-radius: 100px; font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;
+        }
+        .line-badge.pro { background: rgba(0, 192, 240, 0.15); color: var(--cyan); border: 1px solid rgba(0, 192, 240, 0.2); }
+        .line-badge.nexos { background: rgba(0, 48, 128, 0.25); color: var(--cyan); border: 1px solid rgba(0, 48, 128, 0.3); }
+        .line-title { font-size: 1.4rem; margin-bottom: 0.75rem; }
+        .line-desc { color: var(--gray-400); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .line-examples { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .line-example {
+            padding: 0.35rem 0.75rem; background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06); border-radius: 100px;
+            font-size: 0.8rem; color: var(--gray-300);
+        }
+
+        /* ===== SERVICES ===== */
+        .services { background: var(--dark); }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem; max-width: 1200px; margin: 0 auto; align-items: stretch;
+        }
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+        .service-card {
+            background: var(--dark-surface); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius-lg); padding: 2.5rem; transition: var(--transition);
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--navy), var(--cyan));
+            transform: scaleX(0); transition: var(--transition);
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover {
+            transform: translateY(-5px); border-color: rgba(0, 192, 240, 0.15);
+            box-shadow: var(--shadow-glow);
+        }
+        .service-icon {
+            width: 56px; height: 56px; background: rgba(0, 192, 240, 0.1);
+            border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .service-icon svg { width: 28px; height: 28px; color: var(--cyan); }
+        .service-title { font-size: 1.25rem; margin-bottom: 0.75rem; }
+        .service-desc { color: var(--gray-400); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; flex: 1; }
+        .service-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .tag {
+            padding: 0.35rem 0.75rem; background: rgba(0, 192, 240, 0.08);
+            border: 1px solid rgba(0, 192, 240, 0.12); border-radius: 100px;
+            font-size: 0.75rem; font-weight: 500; color: var(--cyan);
+        }
+
+        /* ===== HOW WE WORK ===== */
+        .how-work { background: var(--dark-card); }
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem; max-width: 1000px; margin: 0 auto;
+        }
+        .step-card {
+            background: var(--dark-surface); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius-lg); padding: 2rem; text-align: center;
+            transition: var(--transition); position: relative;
+        }
+        .step-card:hover { transform: translateY(-4px); border-color: rgba(0,192,240,0.15); }
+        .step-num {
+            width: 48px; height: 48px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--navy), var(--cyan));
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem; font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem; font-weight: 700; color: #fff;
+        }
+        .step-title { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .step-desc { color: var(--gray-400); font-size: 0.85rem; line-height: 1.6; }
+
+        /* ===== PRICING ===== */
+        .pricing { background: var(--dark); }
+        .pricing-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; max-width: 800px; margin: 0 auto; align-items: stretch;
+        }
+        .pricing-card {
+            background: var(--dark-surface); border: 1.5px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius-lg); padding: 2.5rem; text-align: center;
+            transition: var(--transition);
+            display: flex; flex-direction: column; height: 100%;
+        }
+        .pricing-card:hover { border-color: rgba(0,192,240,0.15); transform: translateY(-4px); }
+        .pricing-card.featured {
+            border-color: var(--cyan); position: relative;
+            box-shadow: 0 0 30px rgba(0,192,240,0.08);
+        }
+        .pricing-badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            padding: 0.3rem 1rem; background: var(--cyan); color: var(--navy-dark);
+            font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.7rem;
+            border-radius: 100px; text-transform: uppercase;
+        }
+        .pricing-name { font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .pricing-price {
+            font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 700;
+            color: var(--cyan); margin-bottom: 0.25rem;
+        }
+        .pricing-price span { font-size: 1rem; color: var(--gray-500); font-weight: 400; }
+        .pricing-note { font-size: 0.8rem; color: var(--gray-500); margin-bottom: 1.5rem; }
+        .pricing-features { list-style: none; text-align: left; margin-bottom: 1.5rem; flex: 1; }
+        .pricing-features li {
+            padding: 0.5rem 0; color: var(--gray-300); font-size: 0.9rem;
+            display: flex; align-items: center; gap: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        .pricing-features li::before {
+            content: '✓'; color: var(--cyan); font-weight: 700;
+        }
+
+        /* ===== CASE STUDY ===== */
+        .case-study { background: var(--dark-card); position: relative; }
+        .case-study::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 192, 240, 0.3), transparent);
+        }
+        .case-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+        }
+        .case-visual { position: relative; }
+        .case-mockup {
+            background: var(--dark); border: 1px solid rgba(0, 192, 240, 0.1);
+            border-radius: var(--radius-xl); padding: 1.5rem; position: relative; overflow: hidden;
+        }
+        .case-mockup::after {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 192, 240, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .mockup-header {
+            display: flex; align-items: center; gap: 0.5rem;
+            margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .mockup-dot.red { background: #ff5f56; }
+        .mockup-dot.yellow { background: #ffbd2e; }
+        .mockup-dot.green { background: #27c93f; }
+        .mockup-title { font-size: 0.75rem; color: var(--gray-500); margin-left: 0.5rem; }
+        .mockup-body { display: grid; grid-template-columns: 200px 1fr; gap: 1rem; min-height: 280px; }
+        .mockup-sidebar { background: rgba(0, 48, 128, 0.15); border-radius: var(--radius-sm); padding: 1rem; }
+        .mockup-sidebar-item { height: 12px; background: rgba(255,255,255,0.08); border-radius: 4px; margin-bottom: 0.6rem; }
+        .mockup-sidebar-item:nth-child(1) { width: 80%; background: rgba(0, 192, 240, 0.2); }
+        .mockup-sidebar-item:nth-child(2) { width: 60%; }
+        .mockup-sidebar-item:nth-child(3) { width: 70%; }
+        .mockup-sidebar-item:nth-child(4) { width: 50%; }
+        .mockup-sidebar-item:nth-child(5) { width: 65%; }
+        .mockup-main { display: flex; flex-direction: column; gap: 0.75rem; }
+        .mockup-row { display: flex; gap: 0.75rem; align-items: center; }
+        .mockup-cell { height: 32px; background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); flex: 1; }
+        .mockup-cell.highlight { background: rgba(0, 192, 240, 0.1); border: 1px solid rgba(0, 192, 240, 0.2); }
+
+        .case-info { padding: 1rem 0; }
+        .case-client {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.4rem 1rem; background: rgba(0, 192, 240, 0.1);
+            border-radius: 100px; font-size: 0.8rem; font-weight: 600; color: var(--cyan); margin-bottom: 1.5rem;
+        }
+        .case-title { font-size: 2rem; margin-bottom: 1rem; }
+        .case-desc { color: var(--gray-400); line-height: 1.8; margin-bottom: 1.5rem; }
+        .case-meta {
+            display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;
+        }
+        .case-meta-item {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.85rem; color: var(--gray-300);
+        }
+        .case-meta-item svg { width: 16px; height: 16px; color: var(--cyan); }
+        .case-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .case-metric { text-align: center; padding: 1rem; background: var(--dark); border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.05); }
+        .case-metric-value { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--cyan); }
+        .case-metric-label { font-size: 0.75rem; color: var(--gray-500); margin-top: 0.25rem; }
+        .case-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--cyan); font-weight: 600; font-size: 0.9rem; transition: var(--transition);
+        }
+        .case-link:hover { gap: 0.75rem; }
+
+        /* ===== FAQ ===== */
+        .faq { background: var(--dark-card); }
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item {
+            background: var(--dark-surface); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: var(--radius-md); margin-bottom: 0.75rem; overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.25rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; font-weight: 600; color: var(--white); font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .faq-question:hover { background: rgba(255,255,255,0.02); }
+        .faq-icon {
+            width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+            color: var(--cyan); transition: var(--transition); flex-shrink: 0;
+        }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.3s ease;
+            padding: 0 1.5rem;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px; padding-bottom: 1.25rem;
+        }
+        .faq-answer p { color: var(--gray-400); font-size: 0.9rem; line-height: 1.7; }
+
+        /* ===== TECH STACK ===== */
+        .tech-stack { background: var(--dark); text-align: center; }
+        .tech-grid {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem;
+            max-width: 900px; margin: 0 auto;
+        }
+        .tech-item {
+            display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+            padding: 1.5rem 2rem; background: var(--dark-surface);
+            border: 1px solid rgba(255,255,255,0.05); border-radius: var(--radius-lg);
+            transition: var(--transition); min-width: 120px;
+        }
+        .tech-item:hover { border-color: rgba(0, 192, 240, 0.2); transform: translateY(-3px); }
+        .tech-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .tech-icon svg { width: 32px; height: 32px; color: var(--gray-300); }
+        .tech-name { font-size: 0.85rem; font-weight: 600; color: var(--gray-300); }
+
+        /* ===== CONTACT ===== */
+        .contact { background: var(--dark-card); position: relative; }
+        .contact::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 192, 240, 0.3), transparent);
+        }
+        .contact-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .contact-form {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+            margin-top: 2rem; text-align: left;
+        }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { font-size: 0.85rem; font-weight: 500; color: var(--gray-300); }
+        .form-group input, .form-group textarea, .form-group select {
+            padding: 0.9rem 1rem; background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md);
+            color: var(--white); font-family: 'Inter', sans-serif; font-size: 0.95rem; transition: var(--transition);
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0, 192, 240, 0.1);
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-600); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-file-wrapper {
+            grid-column: 1 / -1;
+            padding: 1.25rem;
+            background: var(--dark);
+            border: 2px dashed rgba(255,255,255,0.08);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        .form-file-wrapper:hover {
+            border-color: rgba(0, 192, 240, 0.3);
+            background: rgba(0, 192, 240, 0.02);
+        }
+        .form-file-wrapper.has-file {
+            border-color: var(--cyan);
+            background: rgba(0, 192, 240, 0.05);
+        }
+        .form-file-wrapper input[type="file"] {
+            position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+        }
+        .form-file-icon {
+            width: 32px; height: 32px; margin: 0 auto 0.5rem;
+            color: var(--cyan);
+        }
+        .form-file-text { font-size: 0.85rem; color: var(--gray-400); }
+        .form-file-text strong { color: var(--cyan); }
+        .form-file-name {
+            font-size: 0.8rem; color: var(--cyan); margin-top: 0.5rem; font-weight: 500;
+        }
+        .form-submit {
+            grid-column: 1 / -1; padding: 1rem; background: var(--cyan); color: var(--navy-dark);
+            font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1rem;
+            border: none; border-radius: var(--radius-md); cursor: pointer; transition: var(--transition); margin-top: 0.5rem;
+        }
+        .form-submit:hover { background: var(--cyan-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 192, 240, 0.3); }
+        .form-status {
+            grid-column: 1 / -1; padding: 0.75rem; border-radius: var(--radius-md);
+            font-size: 0.9rem; text-align: center; display: none;
+        }
+        .form-status.success { background: rgba(16,185,129,0.1); color: #34d399; border: 1px solid rgba(16,185,129,0.2); display: block; }
+        .form-status.error { background: rgba(239,68,68,0.1); color: #f87171; border: 1px solid rgba(239,68,68,0.2); display: block; }
+        .contact-info {
+            display: flex; justify-content: center; gap: 3rem; margin-top: 3rem; flex-wrap: wrap;
+        }
+        .contact-info-item { display: flex; align-items: center; gap: 0.75rem; color: var(--gray-400); font-size: 0.9rem; }
+        .contact-info-item svg { width: 20px; height: 20px; color: var(--cyan); }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--navy-dark); padding: 3rem 2rem 2rem;
+            border-top: 1px solid rgba(0, 192, 240, 0.1);
+        }
+        .footer-content {
+            max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+        }
+        .footer-brand { display: flex; flex-direction: column; gap: 1rem; }
+        .footer-logo {
+            display: flex; align-items: center; gap: 0.75rem;
+            font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.25rem; color: var(--white);
+        }
+        .footer-desc { color: var(--gray-500); font-size: 0.9rem; line-height: 1.7; max-width: 300px; }
+        .footer-links h4 { font-size: 0.9rem; margin-bottom: 1.25rem; color: var(--white); }
+        .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links a { color: var(--gray-500); font-size: 0.9rem; transition: var(--transition); }
+        .footer-links a:hover { color: var(--cyan); }
+        .footer-bottom {
+            max-width: 1200px; margin: 3rem auto 0; padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-copyright { color: var(--gray-600); font-size: 0.85rem; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a {
+            width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.05);
+            display: flex; align-items: center; justify-content: center; transition: var(--transition);
+        }
+        .footer-social a:hover { background: rgba(0, 192, 240, 0.15); transform: translateY(-2px); }
+        .footer-social svg { width: 18px; height: 18px; color: var(--gray-400); }
+        .footer-social a:hover svg { color: var(--cyan); }
+
+        /* ===== SCROLL REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+
+        /* ===== CHATBOT IA ===== */
+        .chat-toggle {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cyan), var(--navy-light));
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 192, 240, 0.4);
+            transition: var(--transition);
+            animation: chatPulse 3s ease-in-out infinite;
+        }
+        .chat-toggle:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(0, 192, 240, 0.5); }
+        .chat-toggle svg { width: 26px; height: 26px; color: #fff; }
+        .chat-toggle.hidden { display: none; }
+        @keyframes chatPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(0, 192, 240, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(0, 192, 240, 0.6); }
+        }
+
+        .chat-panel {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 360px;
+            max-width: calc(100vw - 2rem);
+            max-height: 500px;
+            background: var(--dark-card);
+            border: 1px solid rgba(0, 192, 240, 0.15);
+            border-radius: var(--radius-xl);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+            transform: translateY(20px) scale(0.95);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .chat-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: all; }
+
+        .chat-header {
+            padding: 1rem 1.25rem;
+            background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(0, 192, 240, 0.1);
+        }
+        .chat-header-icon {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(0, 192, 240, 0.15);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .chat-header-icon svg { width: 20px; height: 20px; color: var(--cyan); }
+        .chat-header-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: #fff; }
+        .chat-header-sub { font-size: 0.75rem; color: var(--gray-500); }
+        .chat-close {
+            margin-left: auto; background: none; border: none; color: var(--gray-400);
+            cursor: pointer; font-size: 1.25rem; padding: 0.25rem; transition: var(--transition);
+        }
+        .chat-close:hover { color: #fff; }
+
+        .chat-messages {
+            flex: 1; overflow-y: auto; padding: 1rem;
+            display: flex; flex-direction: column; gap: 0.75rem;
+        }
+        .chat-msg { display: flex; gap: 0.5rem; max-width: 85%; }
+        .chat-msg.bot { align-self: flex-start; }
+        .chat-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+        .chat-msg-avatar {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(0, 192, 240, 0.1);
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .chat-msg-avatar svg { width: 14px; height: 14px; color: var(--cyan); }
+        .chat-msg-bubble {
+            padding: 0.75rem 1rem; border-radius: var(--radius-md);
+            font-size: 0.85rem; line-height: 1.6;
+        }
+        .chat-msg.bot .chat-msg-bubble {
+            background: var(--dark-surface); color: var(--gray-200);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-top-left-radius: 4px;
+        }
+        .chat-msg.user .chat-msg-bubble {
+            background: var(--cyan); color: var(--navy-dark);
+            border-top-right-radius: 4px;
+        }
+
+        .chat-suggestions {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0 1rem 0.5rem;
+        }
+        .chat-suggestion {
+            padding: 0.4rem 0.8rem; background: rgba(0, 192, 240, 0.08);
+            border: 1px solid rgba(0, 192, 240, 0.12); border-radius: 100px;
+            font-size: 0.75rem; color: var(--cyan); cursor: pointer; transition: var(--transition);
+        }
+        .chat-suggestion:hover { background: rgba(0, 192, 240, 0.15); }
+
+        .chat-input-area {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: flex; gap: 0.5rem;
+        }
+        .chat-input {
+            flex: 1; padding: 0.6rem 1rem; background: var(--dark);
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 100px;
+            color: #fff; font-family: 'Inter', sans-serif; font-size: 0.85rem;
+            outline: none; transition: var(--transition);
+        }
+        .chat-input:focus { border-color: var(--cyan); }
+        .chat-input::placeholder { color: var(--gray-600); }
+        .chat-send {
+            width: 38px; height: 38px; border-radius: 50%;
+            background: var(--cyan); border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition); flex-shrink: 0;
+        }
+        .chat-send:hover { background: var(--cyan-light); transform: scale(1.05); }
+        .chat-send svg { width: 16px; height: 16px; color: var(--navy-dark); }
+
+        @media (max-width: 480px) {
+            .chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 1rem; max-height: 70vh; }
+            .chat-toggle { width: 50px; height: 50px; bottom: 1rem; right: 1rem; }
+        }
+    
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .case-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero-stats { gap: 1.5rem; }
+            .case-metrics { grid-template-columns: 1fr; }
+            .contact-form { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .contact-info { flex-direction: column; gap: 1rem; }
+            .countdown-boxes { gap: 0.5rem; }
+            .count-box { padding: 0.75rem 1rem; min-width: 60px; }
+            .count-box .num { font-size: 1.5rem; }
+        }
+        @media (max-width: 480px) {
+            .navbar { padding: 1rem; }
+            .section { padding: 4rem 1rem; }
+            .hero { padding: 7rem 1rem 3rem; }
+            .hero-cta-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 8L32 32" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M32 8L8 32" stroke="#00C0F0" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <span class="logo-text">NE<span class="logo-x">X</span>OSPRO</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#lineas">Productos</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#precios">Precios</a></li>
+            <li><a href="#caso">Caso de éxito</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-bg-grid"></div>
+            <canvas id="nexos-canvas"></canvas>
+            <div class="hero-bg-glow"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="hero-badge-dot"></span>
+                Software a medida con inteligencia artificial
+            </div>
+            <h1 class="hero-title">
+                Conectamos tu empresa con <span class="accent">software inteligente</span>
+            </h1>
+            <div class="hero-typing" id="typing-text"></div>
+            <p class="hero-subtitle">
+                Dos líneas de producto para transformar tu negocio:
+                <strong>NEXOSPRO</strong> para facturación y gestión integrada.
+                <strong>NEXOS</strong> para sistemas de gestión especializados.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#contacto" class="btn btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    Empezar proyecto
+                </a>
+                <a href="#caso" class="btn btn-secondary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Ver caso de éxito
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">A medida</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">Cloud</div>
+                    <div class="stat-label">Despliegue</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">IA</div>
+                    <div class="stat-label">Integrada</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">24/7</div>
+                    <div class="stat-label">Soporte</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== COUNTDOWN VERIFACTU ===== -->
+    <section class="countdown-section">
+        <div class="countdown-content">
+            <div class="countdown-label">⏱️ Urgencia normativa</div>
+            <h2 class="countdown-title">VeriFactu será obligatorio en 2027</h2>
+            <p class="countdown-sub">Cada día que pasa sin prepararte es un riesgo para tu empresa. NEXOSPRO ya está listo.</p>
+            <div class="countdown-boxes" id="countdown">
+                <div class="count-box"><div class="num" id="cd-days">--</div><div class="lab">Días</div></div>
+                <div class="count-box"><div class="num" id="cd-hours">--</div><div class="lab">Horas</div></div>
+                <div class="count-box"><div class="num" id="cd-minutes">--</div><div class="lab">Minutos</div></div>
+                <div class="count-box"><div class="num" id="cd-seconds">--</div><div class="lab">Segundos</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCT LINES ===== -->
+    <section class="section product-lines" id="lineas">
+        <div class="section-header reveal">
+            <span class="section-label">Líneas de producto</span>
+            <h2 class="section-title">Dos familias, infinitas soluciones</h2>
+            <p class="section-desc">
+                Cada línea está diseñada para un tipo de necesidad empresarial.
+                Elige la que se adapta a tu negocio o combínalas.
+            </p>
+        </div>
+        <div class="lines-grid">
+            <div class="line-card reveal">
+                <div class="line-badge pro">Línea PRO</div>
+                <h3 class="line-title">NEXOSPRO</h3>
+                <p class="line-desc">
+                    Software de facturación y gestión empresarial conectado con <strong>VeriFactu</strong>.
+                    Incluye módulos específicos por sector y cumple con la normativa de la AEAT.
+                    Ideal para empresas que necesitan facturación electrónica obligatoria.
+                </p>
+                <div class="line-examples">
+                    <span class="line-example">NEXOSPRO Auto</span>
+                    <span class="line-example">NEXOSPRO Consultoría</span>
+                    <span class="line-example">NEXOSPRO Retail</span>
+                    <span class="line-example">NEXOSPRO Servicios</span>
+                </div>
+            </div>
+            <div class="line-card reveal">
+                <div class="line-badge nexos">Línea NEXOS</div>
+                <h3 class="line-title">NEXOS</h3>
+                <p class="line-desc">
+                    Sistemas de gestión especializados <strong>sin módulo de facturación</strong>.
+                    Desarrollados a medida para sectores con necesidades específicas de registro,
+                    control y administración digital.
+                </p>
+                <div class="line-examples">
+                    <span class="line-example">NEXOS-RMVP</span>
+                    <span class="line-example">NEXOS-Logística</span>
+                    <span class="line-example">NEXOS-Inmobiliario</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="section services" id="servicios">
+        <div class="section-header reveal">
+            <span class="section-label">Servicios</span>
+            <h2 class="section-title">Soluciones conectadas a tu sector</h2>
+            <p class="section-desc">
+                Cada empresa es única. Diseñamos software que se conecta a tus procesos, no al revés.
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3 class="service-title">Software a medida con IA</h3>
+                <p class="service-desc">
+                    Aplicaciones web y móviles desarrolladas desde cero con arquitectura
+                    moderna, desplegadas en la nube e integradas con modelos de inteligencia
+                    artificial para automatizar procesos y extraer insights.
+                </p>
+                <div class="service-tags">
+                    <span class="tag">Node.js</span>
+                    <span class="tag">React</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">Gemini API</span>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3 class="service-title">Sistemas de gestión sectoriales</h3>
+                <p class="service-desc">
+                    ERPs y plataformas de gestión adaptados a las necesidades específicas
+                    de cada sector: inmobiliario, logística, retail, consultoría y servicios
+                    profesionales.
+                </p>
+                <div class="service-tags">
+                    <span class="tag">Módulos</span>
+                    <span class="tag">Cloud</span>
+                    <span class="tag">APIs</span>
+                    <span class="tag">Escalable</span>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <h3 class="service-title">Facturación VeriFactu 2027</h3>
+                <p class="service-desc">
+                    Software de facturación obligatorio para 2027, conectado en tiempo real
+                    con la Agencia Tributaria. Módulos por sector: consultoría, comercio,
+                    servicios y más.
+                </p>
+                <div class="service-tags">
+                    <span class="tag">VeriFactu</span>
+                    <span class="tag">AEAT</span>
+                    <span class="tag">Obligatorio 2027</span>
+                    <span class="tag">QR</span>
+                </div>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <h3 class="service-title">Automatización con IA</h3>
+                <p class="service-desc">
+                    Integración de modelos de lenguaje (LLMs) y visión artificial para
+                    automatizar tareas repetitivas: extracción de datos de documentos,
+                    respuestas automáticas, análisis predictivo y más.
+                </p>
+                <div class="service-tags">
+                    <span class="tag">OCR</span>
+                    <span class="tag">LLM</span>
+                    <span class="tag">RPA</span>
+                    <span class="tag">APIs</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HOW WE WORK ===== -->
+    <section class="section how-work" id="proceso">
+        <div class="section-header reveal">
+            <span class="section-label">Cómo trabajamos</span>
+            <h2 class="section-title">De la idea a la realidad en 4 pasos</h2>
+            <p class="section-desc">
+                Metodología transparente, sin sorpresas. Sabes en todo momento dónde está tu proyecto.
+            </p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card reveal">
+                <div class="step-num">1</div>
+                <h3 class="step-title">Reunión</h3>
+                <p class="step-desc">Nos cuentas tu negocio, tus procesos y qué necesitas. Sin coste, sin compromiso.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">2</div>
+                <h3 class="step-title">Propuesta</h3>
+                <p class="step-desc">Te enviamos un presupuesto cerrado con alcance, plazos y entregables claros.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">3</div>
+                <h3 class="step-title">Desarrollo</h3>
+                <p class="step-desc">Sprints quincenales con demos en vivo. Ves avanzar tu software semana a semana.</p>
+            </div>
+            <div class="step-card reveal">
+                <div class="step-num">4</div>
+                <h3 class="step-title">Entrega + Soporte</h3>
+                <p class="step-desc">Puesta en marcha, formación del equipo y soporte 24/7 para lo que necesites.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRICING ===== -->
+    <section class="section pricing" id="precios">
+        <div class="section-header reveal">
+            <span class="section-label">Inversión</span>
+            <h2 class="section-title">Presupuesto a medida, sin sorpresas</h2>
+            <p class="section-desc">
+                Cada proyecto es único. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso.
+            </p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card reveal">
+                <h3 class="pricing-name">NEXOS</h3>
+                <div class="pricing-price">A medida</div>
+                <p class="pricing-note">Sistemas de gestión especializados</p>
+                <ul class="pricing-features">
+                    <li>Software sin módulo de facturación</li>
+                    <li>Desarrollo a medida para tu sector</li>
+                    <li>Panel de administración</li>
+                    <li>Despliegue en cloud</li>
+                    <li>3 meses de soporte incluido</li>
+                </ul>
+                <a href="#contacto" class="btn btn-secondary" style="width:100%; justify-content:center;">Solicitar valoración</a>
+            </div>
+            <div class="pricing-card featured reveal">
+                <div class="pricing-badge">Más demandado</div>
+                <h3 class="pricing-name">NEXOSPRO</h3>
+                <div class="pricing-price">A medida</div>
+                <p class="pricing-note">Facturación VeriFactu + gestión integral</p>
+                <ul class="pricing-features">
+                    <li>Software con VeriFactu integrado</li>
+                    <li>Desarrollo a medida para tu sector</li>
+                    <li>Módulos personalizables</li>
+                    <li>Conexión AEAT en tiempo real</li>
+                    <li>IA integrada (OCR, análisis)</li>
+                    <li>6 meses de soporte incluido</li>
+                </ul>
+                <a href="#contacto" class="btn btn-primary" style="width:100%; justify-content:center;">Solicitar valoración</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CASE STUDY ===== -->
+    <section class="section case-study" id="caso">
+        <div class="section-header reveal">
+            <span class="section-label">Caso de éxito</span>
+            <h2 class="section-title">NEXOS-RMVP en producción</h2>
+        </div>
+        <div class="case-content reveal">
+            <div class="case-visual">
+                <div class="case-mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-dot red"></div>
+                        <div class="mockup-dot yellow"></div>
+                        <div class="mockup-dot green"></div>
+                        <span class="mockup-title">hemsa-frontend.onrender.com</span>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-sidebar">
+                            <div class="mockup-sidebar-item"></div>
+                            <div class="mockup-sidebar-item"></div>
+                            <div class="mockup-sidebar-item"></div>
+                            <div class="mockup-sidebar-item"></div>
+                            <div class="mockup-sidebar-item"></div>
+                            <div style="margin-top: auto; padding: 0.5rem; background: rgba(0,192,240,0.1); border-radius: 4px; height: 30px;"></div>
+                        </div>
+                        <div class="mockup-main">
+                            <div class="mockup-row">
+                                <div class="mockup-cell highlight"></div>
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell"></div>
+                            </div>
+                            <div class="mockup-row">
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell highlight"></div>
+                                <div class="mockup-cell"></div>
+                            </div>
+                            <div class="mockup-row">
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell highlight"></div>
+                            </div>
+                            <div class="mockup-row">
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell"></div>
+                                <div class="mockup-cell"></div>
+                            </div>
+                            <div style="margin-top: auto; display: flex; gap: 0.5rem;">
+                                <div style="flex: 1; height: 36px; background: rgba(0,192,240,0.15); border-radius: 4px;"></div>
+                                <div style="width: 36px; height: 36px; background: rgba(0,192,240,0.2); border-radius: 4px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="case-info">
+                <div class="case-client">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Cliente: Administración pública
+                </div>
+                <h3 class="case-title">NEXOS-RMVP</h3>
+                <p class="case-desc">
+                    Sistema integral de gestión del Registro de Vivienda Protegida,
+                    desarrollado para una administración pública. La plataforma permite
+                    gestionar viviendas, titulares, adjudicatarios y documentación asociada
+                    con un flujo de trabajo completamente digital.
+                </p>
+                <div class="case-meta">
+                    <div class="case-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Entregado en 8 semanas
+                    </div>
+                    <div class="case-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        12 usuarios activos
+                    </div>
+                    <div class="case-meta-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        100% en producción
+                    </div>
+                </div>
+                <p class="case-desc">
+                    Pertenece a la línea <strong>NEXOS</strong>: sistemas de gestión especializados
+                    sin módulo de facturación. Desplegado en la nube con arquitectura moderna
+                    (Node.js + MongoDB + React), con lectura automática de documentos PDF mediante IA.
+                </p>
+                <div class="case-metrics">
+                    <div class="case-metric">
+                        <div class="case-metric-value">Cloud</div>
+                        <div class="case-metric-label">Despliegue</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">IA</div>
+                        <div class="case-metric-label">OCR integrado</div>
+                    </div>
+                    <div class="case-metric">
+                        <div class="case-metric-value">100%</div>
+                        <div class="case-metric-label">Digital</div>
+                    </div>
+                </div>
+                <a href="https://hemsa-frontend.onrender.com" target="_blank" class="case-link">
+                    Ver plataforma en vivo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="section faq" id="faq">
+        <div class="section-header reveal">
+            <span class="section-label">Preguntas frecuentes</span>
+            <h2 class="section-title">Resolvemos tus dudas</h2>
+        </div>
+        <div class="faq-list reveal">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cuánto cuesta desarrollar una aplicación a medida?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Cada proyecto se valora individualmente según alcance, funcionalidades y complejidad. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cuánto tiempo tarda un proyecto?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Un sistema NEXOS suele estar listo en 6-10 semanas. Un NEXOSPRO con VeriFactu requiere entre 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo para que veas el avance constante.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Puedo migrar desde otro software?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí. Hacemos migración de datos desde Excel, Access, software antiguo o cualquier base de datos. Analizamos tu situación actual y proponemos el plan de migración más seguro.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Qué pasa si necesito cambios después de la entrega?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Incluimos soporte técnico (3 meses para NEXOS, 6 para NEXOSPRO). Después, puedes contratar un plan de mantenimiento o solicitar mejoras puntuales con presupuesto cerrado.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿El software es mío o hay cuota mensual?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>El software es tuyo: pagas por el desarrollo y el código es propiedad de tu empresa. Los costes mensuales dependen de los requerimientos de cada proyecto: dominio, alojamiento en la nube, uso de APIs de IA (OCR, LLMs), soporte técnico, etc. Te detallamos todos los costes recurrentes en el presupuesto antes de empezar, sin sorpresas.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿VeriFactu es realmente obligatorio en 2027?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí. La Agencia Tributaria ha confirmado que a partir de 2027 todas las empresas deberán usar software de facturación conectado en tiempo real con la AEAT. NEXOSPRO ya está preparado para cumplir esta normativa desde el día uno.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Trabajáis solo en España?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Nuestro foco es España, pero al ser software cloud podemos atender clientes de cualquier país. El idioma, la moneda y la normativa se adaptan a cada mercado.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cómo empiezo?
+                    <span class="faq-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Rellena el formulario de contacto o escríbenos a info@filatecnica.com. Te llamamos en menos de 24 horas, hacemos una reunión gratuita de 30 minutos y te enviamos propuesta en 48 horas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TECH STACK ===== -->
+    <section class="section tech-stack" id="tecnologia">
+        <div class="section-header reveal">
+            <span class="section-label">Tecnología</span>
+            <h2 class="section-title">Stack tecnológico moderno</h2>
+            <p class="section-desc">
+                Utilizamos las tecnologías más robustas y escalables del mercado para
+                garantizar rendimiento, seguridad y mantenibilidad a largo plazo.
+            </p>
+        </div>
+        <div class="tech-grid reveal">
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <span class="tech-name">Node.js</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <span class="tech-name">MongoDB</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <span class="tech-name">React</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <span class="tech-name">IA / LLMs</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                </div>
+                <span class="tech-name">Cloud</span>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <span class="tech-name">Seguridad</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contacto">
+        <div class="contact-content reveal">
+            <span class="section-label">Contacto</span>
+            <h2 class="section-title">¿Hablamos de tu proyecto?</h2>
+            <p class="section-desc">
+                Cuéntanos qué necesitas y te proponemos una solución a medida.
+                Sin compromiso, sin costes ocultos.
+            </p>
+
+            <!-- IMPORTANTE: Cambia action por tu endpoint de Formspree -->
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa</label>
+                    <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
+                </div>
+                <div class="form-group">
+                    <label for="linea">Línea de interés</label>
+                    <select id="linea" name="linea">
+                        <option value="">Selecciona una línea</option>
+                        <option value="nexospro">NEXOSPRO (facturación + gestión)</option>
+                        <option value="nexos">NEXOS (gestión especializada)</option>
+                        <option value="no-sure">No estoy seguro / A medida</option>
+                    </select>
+                </div>
+                <div class="form-group full-width">
+                    <label for="mensaje">¿Qué necesitas?</label>
+                    <textarea id="mensaje" name="mensaje" placeholder="Describe brevemente tu proyecto o necesidad..."></textarea>
+                </div>
+                <div class="form-file-wrapper" id="fileWrapper" onclick="document.getElementById('fileInput').click()">
+                    <input type="file" id="fileInput" name="adjunto" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png,.zip,.rar" onchange="updateFileName(this)">
+                    <svg class="form-file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <div class="form-file-text">Arrastra aqui o <strong>haz clic para subir</strong> un documento</div>
+                    <div class="form-file-name" id="fileName"></div>
+                </div>
+                <button type="submit" class="form-submit">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    Enviar solicitud
+                </button>
+                <div class="form-status" id="formStatus"></div>
+            </form>
+
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    info@filatecnica.com
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    www.filatecnica.com
+                </div>
+                <div class="contact-info-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    FILA TÉCNICA S.L.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 8L32 32" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M32 8L8 32" stroke="#00C0F0" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    <span class="logo-text">NE<span class="logo-x">X</span>OSPRO</span>
+                </div>
+                <p class="footer-desc">
+                    Software a medida con inteligencia artificial. Una marca de
+                    <strong>FILA TÉCNICA S.L.</strong>, especialistas en software empresarial
+                    e innovación tecnológica desde hace más de una década.
+                </p>
+            </div>
+            <div class="footer-links">
+                <h4>Productos</h4>
+                <ul>
+                    <li><a href="#lineas">NEXOSPRO</a></li>
+                    <li><a href="#lineas">NEXOSPRO Auto</a></li>
+                    <li><a href="#lineas">NEXOSPRO Consultoría</a></li>
+                    <li><a href="#lineas">NEXOS-RMVP</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="https://www.filatecnica.com" target="_blank">FILA TÉCNICA S.L.</a></li>
+                    <li><a href="#caso">Casos de éxito</a></li>
+                    <li><a href="#tecnologia">Tecnología</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Aviso legal</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">
+                © 2026 NEXOSPRO — FILA TÉCNICA S.L. Todos los derechos reservados.
+            </p>
+            <div class="footer-social">
+                <a href="#" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== NAVBAR SCROLL =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Cerrar menú móvil al navegar
+                const navLinks = document.querySelector('.nav-links');
+                if (window.innerWidth <= 768) navLinks.style.display = 'none';
+            });
+        });
+
+        // ===== MOBILE MENU =====
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const isOpen = navLinks.style.display === 'flex';
+            navLinks.style.display = isOpen ? 'none' : 'flex';
+            if (!isOpen) {
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%'; navLinks.style.left = '0'; navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'rgba(10, 14, 26, 0.98)';
+                navLinks.style.padding = '1.5rem'; navLinks.style.gap = '1rem';
+                navLinks.style.borderBottom = '1px solid rgba(0, 192, 240, 0.1)';
+            }
+        }
+
+        // ===== TYPING EFFECT =====
+        const phrases = [
+            'software inteligente',
+            'facturación VeriFactu',
+            'gestión con IA',
+            'automatización de procesos'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(typeEffect, typeSpeed);
+        }
+        typeEffect();
+
+        // ===== COUNTDOWN =====
+        function updateCountdown() {
+            const target = new Date('2027-01-01T00:00:00');
+            const now = new Date();
+            const diff = target - now;
+            if (diff <= 0) return;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            document.getElementById('cd-days').textContent = String(days).padStart(3, '0');
+            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ===== FAQ TOGGLE =====
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const isActive = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
+        }
+
+        // ===== NEXOS CANVAS (Network Effect) =====
+        const canvas = document.getElementById('nexos-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 60;
+        const connectionDistance = 120;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 192, 240, 0.4)';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => { p.update(); p.draw(); });
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 192, 240, ${0.15 * (1 - dist / connectionDistance)})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // ===== FILE UPLOAD =====
+        function updateFileName(input) {
+            const wrapper = document.getElementById('fileWrapper');
+            const nameDisplay = document.getElementById('fileName');
+            if (input.files && input.files[0]) {
+                nameDisplay.textContent = '✓ ' + input.files[0].name;
+                wrapper.classList.add('has-file');
+            } else {
+                nameDisplay.textContent = '';
+                wrapper.classList.remove('has-file');
+            }
+        }
+
+        // ===== FORM HANDLING (Formspree) =====
+        const form = document.getElementById('contactForm');
+        const formStatus = document.getElementById('formStatus');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const action = form.getAttribute('action');
+
+            // Si aún tienes el placeholder de Formspree, muestra mensaje de demo
+            if (action.includes('YOUR_FORM_ID')) {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = '✓ Mensaje enviado correctamente. Te contactaremos en menos de 24 horas.';
+                form.reset();
+                setTimeout(() => { formStatus.className = 'form-status'; }, 5000);
+                return;
+            }
+
+            try {
+                const response = await fetch(action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = '✓ Mensaje enviado correctamente. Te contactaremos en menos de 24 horas.';
+                    form.reset();
+                } else {
+                    formStatus.className = 'form-status error';
+                    formStatus.textContent = '✗ Hubo un error. Por favor, inténtalo de nuevo o escríbenos a info@filatecnica.com';
+                }
+            } catch (error) {
+                formStatus.className = 'form-status error';
+                formStatus.textContent = '✗ Error de conexión. Escríbenos directamente a info@filatecnica.com';
+            }
+            setTimeout(() => { formStatus.className = 'form-status'; }, 6000);
+        });
+
+        // ===== CHATBOT IA =====
+        const chatToggle = document.getElementById('chatToggle');
+        const chatPanel = document.getElementById('chatPanel');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatSuggestions = document.getElementById('chatSuggestions');
+        const chatInput = document.getElementById('chatInput');
+
+        const iaKnowledge = {
+            'hola': '¡Hola! Soy el asistente de NEXOSPRO. ¿En qué puedo ayudarte? Puedes preguntarme sobre precios, VeriFactu, tecnología o cómo empezar un proyecto.',
+            'precio': 'Cada proyecto se valora individualmente según alcance, funcionalidades y complejidad. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso. ¿Te gustaría que te preparemos uno?',
+            'presupuesto': 'Cada proyecto se valora individualmente según alcance, funcionalidades y complejidad. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso. ¿Te gustaría que te preparemos uno?',
+            'cuanto cuesta': 'Cada proyecto se valora individualmente según alcance, funcionalidades y complejidad. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso. ¿Te gustaría que te preparemos uno?',
+            'verifactu': 'VeriFactu será obligatorio en 2027. NEXOSPRO ya está preparado para conectarse en tiempo real con la AEAT. Incluye QR, firma digital y cumplimiento normativo completo.',
+            'facturacion': 'VeriFactu será obligatorio en 2027. NEXOSPRO ya está preparado para conectarse en tiempo real con la AEAT. Incluye QR, firma digital y cumplimiento normativo completo.',
+            'tecnologia': 'Usamos Node.js, React, MongoDB y APIs de IA (Gemini). Todo desplegado en la nube con arquitectura moderna, escalable y segura.',
+            'stack': 'Usamos Node.js, React, MongoDB y APIs de IA (Gemini). Todo desplegado en la nube con arquitectura moderna, escalable y segura.',
+            'tiempo': 'Un NEXOS tarda 6-10 semanas. Un NEXOSPRO con VeriFactu 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo.',
+            'plazo': 'Un NEXOS tarda 6-10 semanas. Un NEXOSPRO con VeriFactu 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo.',
+            'empezar': 'Es muy sencillo: 1) Rellena el formulario de contacto, 2) Hacemos una reunión gratuita de 30 min, 3) Te enviamos propuesta en 48h. ¿Quieres que te pasemos al formulario?',
+            'contacto': 'Puedes escribirnos a info@nexospro.es o rellenar el formulario en la sección Contacto. Te respondemos en menos de 24 horas.',
+            'nexos': 'NEXOS son sistemas de gestión especializados SIN facturación. Ideales para registros, control y administración digital de sectores específicos.',
+            'nexospro': 'NEXOSPRO es software de facturación y gestión con VeriFactu integrado. Incluye módulos por sector y cumple con la normativa de la AEAT.',
+            'ia': 'Integramos modelos de lenguaje (LLMs) y visión artificial para automatizar tareas: extracción de datos de documentos, respuestas automáticas, análisis predictivo...',
+            'inteligencia artificial': 'Integramos modelos de lenguaje (LLMs) y visión artificial para automatizar tareas: extracción de datos de documentos, respuestas automáticas, análisis predictivo...',
+            'soporte': 'Incluimos 3 meses de soporte para NEXOS y 6 para NEXOSPRO. Después puedes contratar mantenimiento o mejoras puntuales.',
+            'cloud': 'Todo se despliega en la nube (Render, AWS, etc.). El hosting tiene un coste mensual muy bajo, desde 7€/mes.',
+            'default': 'Buena pregunta. Para darte una respuesta más precisa, te recomiendo que hables con nuestro equipo. ¿Te paso al formulario de contacto?'
+        };
+
+        const suggestions = [
+            '¿Cuánto cuesta?',
+            '¿Qué es VeriFactu?',
+            '¿Qué tecnología usáis?',
+            '¿Cómo empiezo?'
+        ];
+
+        function toggleChat() {
+            const isOpen = chatPanel.classList.contains('open');
+            chatPanel.classList.toggle('open');
+            chatToggle.classList.toggle('hidden', !isOpen);
+            if (!isOpen && chatMessages.children.length === 0) {
+                addBotMessage('¡Hola! Soy el asistente de NEXOSPRO. ¿En qué puedo ayudarte?');
+                showSuggestions();
+            }
+        }
+
+        function addBotMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = 'chat-msg bot';
+            msg.innerHTML = `<div class="chat-msg-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div><div class="chat-msg-bubble">${text}</div>`;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addUserMessage(text) {
+            const msg = document.createElement('div');
+            msg.className = 'chat-msg user';
+            msg.innerHTML = `<div class="chat-msg-bubble">${text}</div>`;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showSuggestions() {
+            chatSuggestions.innerHTML = suggestions.map(s => `<span class="chat-suggestion" onclick="askSuggestion('${s}')">${s}</span>`).join('');
+        }
+
+        function askSuggestion(text) {
+            chatInput.value = text;
+            sendChat();
+        }
+
+        function sendChat() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            addUserMessage(text);
+            chatInput.value = '';
+            chatSuggestions.innerHTML = '';
+
+            setTimeout(() => {
+                const lower = text.toLowerCase();
+                let response = iaKnowledge.default;
+                for (const key in iaKnowledge) {
+                    if (lower.includes(key)) { response = iaKnowledge[key]; break; }
+                }
+                addBotMessage(response);
+                showSuggestions();
+            }, 600);
+        }
+
+    </script>
+
+    <!-- ===== CHATBOT IA ===== -->
+    <button class="chat-toggle" id="chatToggle" onclick="toggleChat()" aria-label="Asistente IA">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header">
+            <div class="chat-header-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+            <div>
+                <div class="chat-header-title">NEXOSPRO Assistant</div>
+                <div class="chat-header-sub">IA · Responde en segundos</div>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">✕</button>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-suggestions" id="chatSuggestions"></div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Escribe tu pregunta..." onkeydown="if(event.key==='Enter')sendChat()">
+            <button class="chat-send" onclick="sendChat()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>

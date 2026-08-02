@@ -1,0 +1,8 @@
+# Publicar solo la web final: ignorar versiones antiguas/borradores
+*.html
+!index.html
+
+# Basura del sistema
+Thumbs.db
+.DS_Store
+.netlify
