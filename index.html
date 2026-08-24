@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXOSPRO — Software a medida con IA | FILA TÉCNICA S.L.</title>
-    <meta name="description" content="NEXOSPRO: software de facturación VeriFactu y soluciones a medida con IA. NEXOS: sistemas de gestión sectoriales. Desde 2.500€. Presupuesto cerrado.">
-    <meta name="keywords" content="software a medida, VeriFactu, facturación electrónica, IA, gestión empresarial, NEXOSPRO, FILA TÉCNICA">
+    <title>FILANEX — Software a medida con IA | FILA TÉCNICA S.L.</title>
+    <meta name="description" content="FILANEX PRO: software de facturación VeriFactu y gestión integral. FILANEX: sistemas de gestión sectoriales a medida con IA. Presupuesto cerrado en 48 horas.">
+    <meta name="keywords" content="software a medida, VeriFactu, facturación electrónica, IA, gestión empresarial, FILANEX, FILANEX PRO, FILA TÉCNICA">
     <meta name="author" content="FILA TÉCNICA S.L.">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://filanex.es">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="NEXOSPRO — Software a medida con IA">
+    <meta property="og:title" content="FILANEX — Software a medida con IA">
     <meta property="og:description" content="Transformamos tu empresa con software inteligente. VeriFactu 2027, gestión sectorial e IA integrada.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://nexospro.es">
-    <meta property="og:site_name" content="NEXOSPRO">
+    <meta property="og:url" content="https://filanex.es">
+    <meta property="og:site_name" content="FILANEX">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NEXOSPRO — Software a medida con IA">
+    <meta name="twitter:title" content="FILANEX — Software a medida con IA">
     <meta name="twitter:description" content="Transformamos tu empresa con software inteligente. VeriFactu 2027, gestión sectorial e IA integrada.">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M8 8L32 32' stroke='%23ffffff' stroke-width='3' stroke-linecap='round'/%3E%3Cpath d='M32 8L8 32' stroke='%2300C0F0' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+    <!-- Favicon: monograma FX oficial (versión negativa) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0A'/%3E%3Cg stroke='%23FFFFFF' stroke-width='2.6' stroke-linecap='square' fill='none'%3E%3Cpath d='M9 25V7h8.5'/%3E%3Cpath d='M9 13h4'/%3E%3Cpath d='M13 13l4 4'/%3E%3Cpath d='M17 17l7.5-7.5'/%3E%3Cpath d='M17 17l7.5 7.5'/%3E%3Cpath d='M17 17l-5 5'/%3E%3C/g%3E%3Ccircle cx='17' cy='17' r='2.6' fill='%230EA5E9'/%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,8 +109,8 @@
         }
         .nav-logo-icon { width: 44px; height: 44px; position: relative; }
         .nav-logo-icon svg { width: 100%; height: 100%; }
-        .logo-text { white-space: nowrap; display: inline-block; }
-        .logo-x { color: var(--cyan); }
+        .logo-text { white-space: nowrap; display: inline-block; letter-spacing: 0.2em; }
+        .logo-x { color: #0EA5E9; }
 
         .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a {
@@ -151,7 +152,7 @@
                 linear-gradient(90deg, rgba(0, 192, 240, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
         }
-        #nexos-canvas {
+        #filanex-canvas {
             position: absolute; inset: 0; z-index: 0; opacity: 0.6;
         }
         .hero-bg-glow {
@@ -301,7 +302,7 @@
             text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem;
         }
         .line-badge.pro { background: rgba(0, 192, 240, 0.15); color: var(--cyan); border: 1px solid rgba(0, 192, 240, 0.2); }
-        .line-badge.nexos { background: rgba(0, 48, 128, 0.25); color: var(--cyan); border: 1px solid rgba(0, 48, 128, 0.3); }
+        .line-badge.core { background: rgba(0, 48, 128, 0.25); color: var(--cyan); border: 1px solid rgba(0, 48, 128, 0.3); }
         .line-title { font-size: 1.4rem; margin-bottom: 0.75rem; }
         .line-desc { color: var(--gray-400); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; }
         .line-examples { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -809,12 +810,19 @@
     <nav class="navbar" id="navbar">
         <a href="#" class="nav-logo">
             <div class="nav-logo-icon">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 8L32 32" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M32 8L8 32" stroke="#00C0F0" stroke-width="3" stroke-linecap="round"/>
+                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="square">
+                        <path d="M9 25V7h8.5"/>
+                        <path d="M9 13h4"/>
+                        <path d="M13 13l4 4"/>
+                        <path d="M17 17l7.5-7.5"/>
+                        <path d="M17 17l7.5 7.5"/>
+                        <path d="M17 17l-5 5"/>
+                    </g>
+                    <circle cx="17" cy="17" r="2.5" fill="#0EA5E9"/>
                 </svg>
             </div>
-            <span class="logo-text">NE<span class="logo-x">X</span>OSPRO</span>
+            <span class="logo-text">FILANE<span class="logo-x">X</span></span>
         </a>
         <ul class="nav-links">
             <li><a href="#lineas">Productos</a></li>
@@ -832,7 +840,7 @@
     <section class="hero">
         <div class="hero-bg">
             <div class="hero-bg-grid"></div>
-            <canvas id="nexos-canvas"></canvas>
+            <canvas id="filanex-canvas"></canvas>
             <div class="hero-bg-glow"></div>
         </div>
         <div class="hero-content">
@@ -846,8 +854,8 @@
             <div class="hero-typing" id="typing-text"></div>
             <p class="hero-subtitle">
                 Dos líneas de producto para transformar tu negocio:
-                <strong>NEXOSPRO</strong> para facturación y gestión integrada.
-                <strong>NEXOS</strong> para sistemas de gestión especializados.
+                <strong>FILANEX PRO</strong> para facturación y gestión integrada.
+                <strong>FILANEX</strong> para sistemas de gestión especializados.
             </p>
             <div class="hero-cta-group">
                 <a href="#contacto" class="btn btn-primary">
@@ -885,7 +893,7 @@
         <div class="countdown-content">
             <div class="countdown-label">⏱️ Urgencia normativa</div>
             <h2 class="countdown-title">VeriFactu será obligatorio en 2027</h2>
-            <p class="countdown-sub">Cada día que pasa sin prepararte es un riesgo para tu empresa. NEXOSPRO ya está listo.</p>
+            <p class="countdown-sub">Cada día que pasa sin prepararte es un riesgo para tu empresa. FILANEX PRO ya está listo.</p>
             <div class="countdown-boxes" id="countdown">
                 <div class="count-box"><div class="num" id="cd-days">--</div><div class="lab">Días</div></div>
                 <div class="count-box"><div class="num" id="cd-hours">--</div><div class="lab">Horas</div></div>
@@ -908,31 +916,31 @@
         <div class="lines-grid">
             <div class="line-card reveal">
                 <div class="line-badge pro">Línea PRO</div>
-                <h3 class="line-title">NEXOSPRO</h3>
+                <h3 class="line-title">FILANEX PRO</h3>
                 <p class="line-desc">
                     Software de facturación y gestión empresarial conectado con <strong>VeriFactu</strong>.
                     Incluye módulos específicos por sector y cumple con la normativa de la AEAT.
                     Ideal para empresas que necesitan facturación electrónica obligatoria.
                 </p>
                 <div class="line-examples">
-                    <span class="line-example">NEXOSPRO Auto</span>
-                    <span class="line-example">NEXOSPRO Consultoría</span>
-                    <span class="line-example">NEXOSPRO Retail</span>
-                    <span class="line-example">NEXOSPRO Servicios</span>
+                    <span class="line-example">FILANEX PRO Auto</span>
+                    <span class="line-example">FILANEX PRO Consultoría</span>
+                    <span class="line-example">FILANEX PRO Retail</span>
+                    <span class="line-example">FILANEX PRO Servicios</span>
                 </div>
             </div>
             <div class="line-card reveal">
-                <div class="line-badge nexos">Línea NEXOS</div>
-                <h3 class="line-title">NEXOS</h3>
+                <div class="line-badge core">Línea CORE</div>
+                <h3 class="line-title">FILANEX</h3>
                 <p class="line-desc">
                     Sistemas de gestión especializados <strong>sin módulo de facturación</strong>.
                     Desarrollados a medida para sectores con necesidades específicas de registro,
                     control y administración digital.
                 </p>
                 <div class="line-examples">
-                    <span class="line-example">NEXOS-RMVP</span>
-                    <span class="line-example">NEXOS-Logística</span>
-                    <span class="line-example">NEXOS-Inmobiliario</span>
+                    <span class="line-example">FILANEX-RMVP</span>
+                    <span class="line-example">FILANEX-Logística</span>
+                    <span class="line-example">FILANEX-Inmobiliario</span>
                 </div>
             </div>
         </div>
@@ -1063,7 +1071,7 @@
         </div>
         <div class="pricing-grid">
             <div class="pricing-card reveal">
-                <h3 class="pricing-name">NEXOS</h3>
+                <h3 class="pricing-name">FILANEX</h3>
                 <div class="pricing-price">A medida</div>
                 <p class="pricing-note">Sistemas de gestión especializados</p>
                 <ul class="pricing-features">
@@ -1077,7 +1085,7 @@
             </div>
             <div class="pricing-card featured reveal">
                 <div class="pricing-badge">Más demandado</div>
-                <h3 class="pricing-name">NEXOSPRO</h3>
+                <h3 class="pricing-name">FILANEX PRO</h3>
                 <div class="pricing-price">A medida</div>
                 <p class="pricing-note">Facturación VeriFactu + gestión integral</p>
                 <ul class="pricing-features">
@@ -1097,7 +1105,7 @@
     <section class="section case-study" id="caso">
         <div class="section-header reveal">
             <span class="section-label">Caso de éxito</span>
-            <h2 class="section-title">NEXOS-RMVP en producción</h2>
+            <h2 class="section-title">FILANEX-RMVP en producción</h2>
         </div>
         <div class="case-content reveal">
             <div class="case-visual">
@@ -1151,7 +1159,7 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                     Cliente: Administración pública
                 </div>
-                <h3 class="case-title">NEXOS-RMVP</h3>
+                <h3 class="case-title">FILANEX-RMVP</h3>
                 <p class="case-desc">
                     Sistema integral de gestión del Registro de Vivienda Protegida,
                     desarrollado para una administración pública. La plataforma permite
@@ -1173,7 +1181,7 @@
                     </div>
                 </div>
                 <p class="case-desc">
-                    Pertenece a la línea <strong>NEXOS</strong>: sistemas de gestión especializados
+                    Pertenece a la línea <strong>FILANEX</strong>: sistemas de gestión especializados
                     sin módulo de facturación. Desplegado en la nube con arquitectura moderna
                     (Node.js + MongoDB + React), con lectura automática de documentos PDF mediante IA.
                 </p>
@@ -1221,7 +1229,7 @@
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Un sistema NEXOS suele estar listo en 6-10 semanas. Un NEXOSPRO con VeriFactu requiere entre 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo para que veas el avance constante.</p>
+                    <p>Un sistema FILANEX suele estar listo en 6-10 semanas. Un FILANEX PRO con VeriFactu requiere entre 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo para que veas el avance constante.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -1239,7 +1247,7 @@
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Incluimos soporte técnico (3 meses para NEXOS, 6 para NEXOSPRO). Después, puedes contratar un plan de mantenimiento o solicitar mejoras puntuales con presupuesto cerrado.</p>
+                    <p>Incluimos soporte técnico (3 meses para FILANEX, 6 para FILANEX PRO). Después, puedes contratar un plan de mantenimiento o solicitar mejoras puntuales con presupuesto cerrado.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -1257,7 +1265,7 @@
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Sí. La Agencia Tributaria ha confirmado que a partir de 2027 todas las empresas deberán usar software de facturación conectado en tiempo real con la AEAT. NEXOSPRO ya está preparado para cumplir esta normativa desde el día uno.</p>
+                    <p>Sí. La Agencia Tributaria ha confirmado que a partir de 2027 todas las empresas deberán usar software de facturación conectado en tiempo real con la AEAT. FILANEX PRO ya está preparado para cumplir esta normativa desde el día uno.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -1275,7 +1283,7 @@
                     <span class="faq-icon">▼</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Rellena el formulario de contacto o escríbenos a info@nexospro.es. Te llamamos en menos de 24 horas, hacemos una reunión gratuita de 30 minutos y te enviamos propuesta en 48 horas.</p>
+                    <p>Rellena el formulario de contacto o escríbenos a info@filanex.es. Te llamamos en menos de 24 horas, hacemos una reunión gratuita de 30 minutos y te enviamos propuesta en 48 horas.</p>
                 </div>
             </div>
         </div>
@@ -1360,8 +1368,8 @@
                     <label for="linea">Línea de interés</label>
                     <select id="linea" name="linea">
                         <option value="">Selecciona una línea</option>
-                        <option value="nexospro">NEXOSPRO (facturación + gestión)</option>
-                        <option value="nexos">NEXOS (gestión especializada)</option>
+                        <option value="filanex-pro">FILANEX PRO (facturación + gestión)</option>
+                        <option value="filanex">FILANEX (gestión especializada)</option>
                         <option value="no-sure">No estoy seguro / A medida</option>
                     </select>
                 </div>
@@ -1385,11 +1393,11 @@
             <div class="contact-info">
                 <div class="contact-info-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    info@nexospro.es
+                    info@filanex.es
                 </div>
                 <div class="contact-info-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    www.nexospro.es
+                    www.filanex.es
                 </div>
                 <div class="contact-info-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -1404,11 +1412,18 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M8 8L32 32" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M32 8L8 32" stroke="#00C0F0" stroke-width="3" stroke-linecap="round"/>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="square">
+                            <path d="M9 25V7h8.5"/>
+                            <path d="M9 13h4"/>
+                            <path d="M13 13l4 4"/>
+                            <path d="M17 17l7.5-7.5"/>
+                            <path d="M17 17l7.5 7.5"/>
+                            <path d="M17 17l-5 5"/>
+                        </g>
+                        <circle cx="17" cy="17" r="2.5" fill="#0EA5E9"/>
                     </svg>
-                    <span class="logo-text">NE<span class="logo-x">X</span>OSPRO</span>
+                    <span class="logo-text">FILANE<span class="logo-x">X</span></span>
                 </div>
                 <p class="footer-desc">
                     Software a medida con inteligencia artificial. Una marca de
@@ -1419,10 +1434,10 @@
             <div class="footer-links">
                 <h4>Productos</h4>
                 <ul>
-                    <li><a href="#lineas">NEXOSPRO</a></li>
-                    <li><a href="#lineas">NEXOSPRO Auto</a></li>
-                    <li><a href="#lineas">NEXOSPRO Consultoría</a></li>
-                    <li><a href="#lineas">NEXOS-RMVP</a></li>
+                    <li><a href="#lineas">FILANEX PRO</a></li>
+                    <li><a href="#lineas">FILANEX PRO Auto</a></li>
+                    <li><a href="#lineas">FILANEX PRO Consultoría</a></li>
+                    <li><a href="#lineas">FILANEX-RMVP</a></li>
                 </ul>
             </div>
             <div class="footer-links">
@@ -1445,7 +1460,7 @@
         </div>
         <div class="footer-bottom">
             <p class="footer-copyright">
-                © 2026 NEXOSPRO — FILA TÉCNICA S.L. Todos los derechos reservados.
+                © 2026 FILANEX — FILA TÉCNICA S.L. Todos los derechos reservados.
             </p>
             <div class="footer-social">
                 <a href="#" aria-label="LinkedIn">
@@ -1560,8 +1575,8 @@
             if (!isActive) item.classList.add('active');
         }
 
-        // ===== NEXOS CANVAS (Network Effect) =====
-        const canvas = document.getElementById('nexos-canvas');
+        // ===== FILANEX CANVAS (Network Effect) =====
+        const canvas = document.getElementById('filanex-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
         const particleCount = 60;
@@ -1658,40 +1673,44 @@
                     }
                 } else {
                     formStatus.className = 'form-status error';
-                    formStatus.textContent = '✗ Hubo un error. Por favor, inténtalo de nuevo o escríbenos a info@nexospro.es';
+                    formStatus.textContent = '✗ Hubo un error. Por favor, inténtalo de nuevo o escríbenos a info@filanex.es';
                 }
             } catch (error) {
                 formStatus.className = 'form-status error';
-                formStatus.textContent = '✗ Error de conexión. Escríbenos directamente a info@nexospro.es';
+                formStatus.textContent = '✗ Error de conexión. Escríbenos directamente a info@filanex.es';
             }
             setTimeout(() => { formStatus.className = 'form-status'; }, 6000);
         });
 
         // ===== CHATBOT IA =====
-        const chatToggle = document.getElementById('chatToggle');
-        const chatPanel = document.getElementById('chatPanel');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatSuggestions = document.getElementById('chatSuggestions');
-        const chatInput = document.getElementById('chatInput');
+        // El panel del chat se declara más abajo en el HTML: se resuelve al cargar el DOM.
+        let chatToggle, chatPanel, chatMessages, chatSuggestions, chatInput;
+        document.addEventListener('DOMContentLoaded', function () {
+            chatToggle = document.getElementById('chatToggle');
+            chatPanel = document.getElementById('chatPanel');
+            chatMessages = document.getElementById('chatMessages');
+            chatSuggestions = document.getElementById('chatSuggestions');
+            chatInput = document.getElementById('chatInput');
+        });
 
         const iaKnowledge = {
-            'hola': '¡Hola! Soy el asistente de NEXOSPRO. ¿En qué puedo ayudarte? Puedes preguntarme sobre precios, VeriFactu, tecnología o cómo empezar un proyecto.',
+            'hola': '¡Hola! Soy el asistente de FILANEX. ¿En qué puedo ayudarte? Puedes preguntarme sobre precios, VeriFactu, tecnología o cómo empezar un proyecto.',
             'precio': 'Cada proyecto se valora individualmente según alcance, funcionalidades y complejidad. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso. ¿Te gustaría que te preparemos uno?',
             'presupuesto': 'Cada proyecto se valora individualmente según alcance, funcionalidades y complejidad. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso. ¿Te gustaría que te preparemos uno?',
             'cuanto cuesta': 'Cada proyecto se valora individualmente según alcance, funcionalidades y complejidad. Analizamos tus necesidades y te entregamos un presupuesto cerrado en 48 horas, sin costes ocultos ni compromiso. ¿Te gustaría que te preparemos uno?',
-            'verifactu': 'VeriFactu será obligatorio en 2027. NEXOSPRO ya está preparado para conectarse en tiempo real con la AEAT. Incluye QR, firma digital y cumplimiento normativo completo.',
-            'facturacion': 'VeriFactu será obligatorio en 2027. NEXOSPRO ya está preparado para conectarse en tiempo real con la AEAT. Incluye QR, firma digital y cumplimiento normativo completo.',
+            'verifactu': 'VeriFactu será obligatorio en 2027. FILANEX PRO ya está preparado para conectarse en tiempo real con la AEAT. Incluye QR, firma digital y cumplimiento normativo completo.',
+            'facturacion': 'VeriFactu será obligatorio en 2027. FILANEX PRO ya está preparado para conectarse en tiempo real con la AEAT. Incluye QR, firma digital y cumplimiento normativo completo.',
             'tecnologia': 'Usamos Node.js, React, MongoDB y APIs de IA (Gemini). Todo desplegado en la nube con arquitectura moderna, escalable y segura.',
             'stack': 'Usamos Node.js, React, MongoDB y APIs de IA (Gemini). Todo desplegado en la nube con arquitectura moderna, escalable y segura.',
-            'tiempo': 'Un NEXOS tarda 6-10 semanas. Un NEXOSPRO con VeriFactu 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo.',
-            'plazo': 'Un NEXOS tarda 6-10 semanas. Un NEXOSPRO con VeriFactu 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo.',
+            'tiempo': 'Un FILANEX tarda 6-10 semanas. Un FILANEX PRO con VeriFactu 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo.',
+            'plazo': 'Un FILANEX tarda 6-10 semanas. Un FILANEX PRO con VeriFactu 8-12 semanas. Trabajamos por sprints quincenales con demos en vivo.',
             'empezar': 'Es muy sencillo: 1) Rellena el formulario de contacto, 2) Hacemos una reunión gratuita de 30 min, 3) Te enviamos propuesta en 48h. ¿Quieres que te pasemos al formulario?',
-            'contacto': 'Puedes escribirnos a info@nexospro.es o rellenar el formulario en la sección Contacto. Te respondemos en menos de 24 horas.',
-            'nexos': 'NEXOS son sistemas de gestión especializados SIN facturación. Ideales para registros, control y administración digital de sectores específicos.',
-            'nexospro': 'NEXOSPRO es software de facturación y gestión con VeriFactu integrado. Incluye módulos por sector y cumple con la normativa de la AEAT.',
+            'contacto': 'Puedes escribirnos a info@filanex.es o rellenar el formulario en la sección Contacto. Te respondemos en menos de 24 horas.',
+            'filanex pro': 'FILANEX PRO es software de facturación y gestión con VeriFactu integrado. Incluye módulos por sector y cumple con la normativa de la AEAT.',
+            'filanex': 'FILANEX son sistemas de gestión especializados SIN facturación. Ideales para registros, control y administración digital de sectores específicos.',
             'ia': 'Integramos modelos de lenguaje (LLMs) y visión artificial para automatizar tareas: extracción de datos de documentos, respuestas automáticas, análisis predictivo...',
             'inteligencia artificial': 'Integramos modelos de lenguaje (LLMs) y visión artificial para automatizar tareas: extracción de datos de documentos, respuestas automáticas, análisis predictivo...',
-            'soporte': 'Incluimos 3 meses de soporte para NEXOS y 6 para NEXOSPRO. Después puedes contratar mantenimiento o mejoras puntuales.',
+            'soporte': 'Incluimos 3 meses de soporte para FILANEX y 6 para FILANEX PRO. Después puedes contratar mantenimiento o mejoras puntuales.',
             'cloud': 'Todo se despliega en la nube (Render, AWS, etc.). El hosting tiene un coste mensual muy bajo, desde 7€/mes.',
             'default': 'Buena pregunta. Para darte una respuesta más precisa, te recomiendo que hables con nuestro equipo. ¿Te paso al formulario de contacto?'
         };
@@ -1708,7 +1727,7 @@
             chatPanel.classList.toggle('open');
             chatToggle.classList.toggle('hidden', !isOpen);
             if (!isOpen && chatMessages.children.length === 0) {
-                addBotMessage('¡Hola! Soy el asistente de NEXOSPRO. ¿En qué puedo ayudarte?');
+                addBotMessage('¡Hola! Soy el asistente de FILANEX. ¿En qué puedo ayudarte?');
                 showSuggestions();
             }
         }
@@ -1769,7 +1788,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
             </div>
             <div>
-                <div class="chat-header-title">NEXOSPRO Assistant</div>
+                <div class="chat-header-title">FILANEX Assistant</div>
                 <div class="chat-header-sub">IA · Responde en segundos</div>
             </div>
             <button class="chat-close" onclick="toggleChat()">✕</button>
@@ -1870,11 +1889,11 @@
                 <li><strong>Titular:</strong> FILA TÉCNICA S.L.</li>
                 <li><strong>CIF:</strong> B75418350</li>
                 <li><strong>Domicilio:</strong> Calle Escritor Luis Berenguer 4, local 5, 11100 San Fernando (Cádiz)</li>
-                <li><strong>Email:</strong> info@nexospro.es</li>
-                <li><strong>Sitio web:</strong> www.nexospro.es</li>
+                <li><strong>Email:</strong> info@filanex.es</li>
+                <li><strong>Sitio web:</strong> www.filanex.es</li>
             </ul>
             <h3>2. Objeto</h3>
-            <p>El presente aviso legal regula el uso del sitio web www.nexospro.es. La navegación atribuye la condición de usuario e implica la aceptación de todas las cláusulas aquí incluidas.</p>
+            <p>El presente aviso legal regula el uso del sitio web www.filanex.es. La navegación atribuye la condición de usuario e implica la aceptación de todas las cláusulas aquí incluidas.</p>
             <h3>3. Propiedad intelectual e industrial</h3>
             <p>Todos los contenidos del sitio (textos, gráficos, logotipos, marcas, diseño y código) son propiedad de FILA TÉCNICA S.L. o de terceros que han autorizado su uso, y están protegidos por los derechos de propiedad intelectual e industrial. Queda prohibida su reproducción sin autorización expresa.</p>
             <h3>4. Exclusión de responsabilidad</h3>
@@ -1894,7 +1913,7 @@
                 <li><strong>Titular:</strong> FILA TÉCNICA S.L.</li>
                 <li><strong>CIF:</strong> B75418350</li>
                 <li><strong>Domicilio:</strong> Calle Escritor Luis Berenguer 4, local 5, 11100 San Fernando (Cádiz)</li>
-                <li><strong>Email:</strong> info@nexospro.es</li>
+                <li><strong>Email:</strong> info@filanex.es</li>
             </ul>
             <h3>2. Finalidad</h3>
             <p>Tratamos los datos que nos facilitas para atender solicitudes de información o presupuesto, gestionar la relación comercial y prestar nuestros servicios.</p>
@@ -1903,7 +1922,7 @@
             <h3>4. Conservación</h3>
             <p>Los datos se conservarán mientras sean necesarios para la finalidad para la que se recabaron y para determinar posibles responsabilidades legales.</p>
             <h3>5. Derechos</h3>
-            <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:info@nexospro.es">info@nexospro.es</a>. También puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+            <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a href="mailto:info@filanex.es">info@filanex.es</a>. También puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
         </div>
     </div>
 
@@ -1922,14 +1941,14 @@
             <h3>3. Gestión de cookies</h3>
             <p>Al acceder por primera vez se muestra un aviso que permite aceptar o rechazar las cookies no necesarias. Puedes cambiar tu decisión borrando las cookies desde la configuración de tu navegador (Chrome, Firefox, Edge o Safari).</p>
             <h3>4. Actualización</h3>
-            <p>FILA TÉCNICA S.L. puede modificar esta política según nuevos requisitos legales o técnicos. Para cualquier duda escríbenos a <a href="mailto:info@nexospro.es">info@nexospro.es</a>.</p>
+            <p>FILA TÉCNICA S.L. puede modificar esta política según nuevos requisitos legales o técnicos. Para cualquier duda escríbenos a <a href="mailto:info@filanex.es">info@filanex.es</a>.</p>
         </div>
     </div>
 
     <script>
         // ===== COOKIES CONSENT =====
         (function () {
-            var KEY = 'nexospro-cookie-consent';
+            var KEY = 'filanex-cookie-consent';
             var banner = document.getElementById('cookieBanner');
             try {
                 var v = localStorage.getItem(KEY);
